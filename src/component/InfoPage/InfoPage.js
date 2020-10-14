@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
 import styles from "./InfoPage.module.css";
 
+
 function InfoPage(props) {
   const id = props.match.params.id;
   const [movie, setMovie] = useState([]);
@@ -9,7 +10,7 @@ function InfoPage(props) {
   const [seasons, setSeasons] = useState([]);
   const [summary, setSummary] = useState("");
 
-  const summaryWithoutTag = summary.toString().replace(/(<([^>]+)>)/gi, "");
+  const summaryWithoutTag = summary.replace(/(<([^>]+)>)/gi, "");
 
   useEffect(() => {
     fetch(`https://api.tvmaze.com/shows/${id}?embed[]=cast&embed[]=seasons`)

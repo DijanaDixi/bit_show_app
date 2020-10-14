@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 
-function Header({ filtered,dropdown,searchFilter}) {
-  const list = filtered.map((item) => {
+function Header() {
+  const [value, setSearchValue] = useState("");
+  const [movies, setAllMovies] = useState([]);
+  const [dropdown, setDropdownList] = useState(false);
+
+  useEffect(() => {
+    fetch(`https://api.tvmaze.com/search/shows?q=${value}`)
+      .then((response) => response.json())
+      .then((data) => {
+        // console.log(data);
+        setAllMovies(data);
+      });
+  }, [value]);
+
+  const getValue = (value) => {
+    setDropdownList(true);
+    setSearchValue(value);
+  };
+  const list = movies.map((item) => {
     return (
-      <Link className="dropdown-item" key={item.id} to={"/infoPage/"+item.id}>
-        {item.name}
+      <Link
+        className="dropdown-item"
+        key={item.show.id}
+        to={"/infoPage/" + item.id}
+      >
+        {item.show.name}
       </Link>
     );
   });
@@ -19,7 +40,11 @@ function Header({ filtered,dropdown,searchFilter}) {
           </Link>
 
           <div className={styles.inputHolder}>
-            <input type="search" placeholder="Search" onChange={(e)=>searchFilter(e.target.value)} />
+            <input
+              type="search"
+              placeholder="Search"
+              onChange={(e) => getValue(e.target.value)}
+            />
             {dropdown ? (
               <div className={`dropdown ${styles.drop}`}>{list}</div>
             ) : null}
