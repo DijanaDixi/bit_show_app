@@ -1,0 +1,12 @@
+
+header{
+    background-color: black;
+    padding: 10px;
+    margin-bottom: 70px;
+}
+.header{
+    justify-content: space-between;
+}
+.logo{
+    color: white;
+}
