@@ -3,13 +3,11 @@ import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 
 function Header({ filtered,dropdown,searchFilter}) {
-  console.log(filtered)
-
   const list = filtered.map((item) => {
     return (
-      <a className="dropdown-item" href="/" key={item.id}>
+      <Link className="dropdown-item" key={item.id} to={"/infoPage/"+item.id}>
         {item.name}
-      </a>
+      </Link>
     );
   });
   return (
