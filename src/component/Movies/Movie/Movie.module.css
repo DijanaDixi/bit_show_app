@@ -1,0 +1,9 @@
+.linkInfo{
+    color:black;
+  }
+  .linkInfo:hover{
+    color:gray
+  }
+  .linkInfo:hover, .linkInfo:active, .linkInfo:link{
+    text-decoration: none;
+  }

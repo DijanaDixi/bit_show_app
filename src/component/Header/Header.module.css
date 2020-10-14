@@ -3,10 +3,35 @@ header{
     background-color: black;
     padding: 10px;
     margin-bottom: 70px;
+  
 }
 .header{
     justify-content: space-between;
 }
 .logo{
     color: white;
+}
+
+.drop{
+   position: absolute!important;
+   display: block;
+   background-color: white;
+   z-index: 5;
+   width: 190px;
+   padding-inline-start: 0px;
+  
+  
+}
+.inputHolder{
+    margin-top: 8px;
+}
+input{
+   padding: 8px;
+    border: 1px solid black;
+    border-radius:5px;
+    outline-style: none;
+}
+.drop a{
+   padding: 0.15rem 0.8rem;
+   border-bottom: 1px solid black;
 }

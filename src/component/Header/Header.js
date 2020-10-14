@@ -2,19 +2,31 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 
-function Header() {
+function Header({ filtered,dropdown,searchFilter}) {
+  console.log(filtered)
+
+  const list = filtered.map((item) => {
+    return (
+      <a className="dropdown-item" href="/" key={item.id}>
+        {item.name}
+      </a>
+    );
+  });
   return (
     <header>
       <div className="container">
         <div className={`row ${styles.header}`}>
           <Link to="/">
-          <h1 className={styles.logo}>Bit Show</h1>
+            <h1 className={styles.logo}>Bit Show</h1>
           </Link>
-           
-            <form className="form-inline my-2 my-lg-0">
-            <input className="form-control w-100" type="search" placeholder="Search" aria-label="Search"/>
-            </form>
-   </div>
+
+          <div className={styles.inputHolder}>
+            <input type="search" placeholder="Search" onChange={(e)=>searchFilter(e.target.value)} />
+            {dropdown ? (
+              <div className={`dropdown ${styles.drop}`}>{list}</div>
+            ) : null}
+          </div>
+        </div>
       </div>
     </header>
   );
