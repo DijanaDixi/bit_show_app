@@ -25,7 +25,7 @@ function Header() {
       <Link
         className="dropdown-item"
         key={item.show.id}
-        to={"/infoPage/" + item.id}
+        to={"/infoPage/" + item.show.id}
       >
         {item.show.name}
       </Link>
@@ -35,7 +35,7 @@ function Header() {
     <header>
       <div className="container">
         <div className={`row ${styles.header}`}>
-          <Link to="/">
+          <Link to="/" className={styles.decoration}>
             <h1 className={styles.logo}>Bit Show</h1>
           </Link>
 

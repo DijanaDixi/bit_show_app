@@ -10,8 +10,11 @@ header{
 }
 .logo{
     color: white;
+   
 }
-
+.decoration:hover{
+    text-decoration: none;
+}
 .drop{
    position: absolute!important;
    display: block;
@@ -34,4 +37,7 @@ input{
 .drop a{
    padding: 0.15rem 0.8rem;
    border-bottom: 1px solid black;
+}
+a{
+
 }

@@ -4,12 +4,13 @@ import styles from "./Movies.module.css";
 
 function Movies() {
   const [movies, setMovies] = useState([]);
- 
+
   useEffect(() => {
     fetch("http://api.tvmaze.com/shows")
       .then((response) => response.json())
       .then((data) => {
         const movies = data.slice(0, 12);
+        console.log(movies);
         setMovies(movies);
       });
   }, []);
@@ -17,6 +18,7 @@ function Movies() {
   const allMovies = movies.map((movie) => {
     return <Movie movie={movie} key={movie.id} />;
   });
+
 
   return (
     <>
