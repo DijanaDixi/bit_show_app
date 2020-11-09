@@ -10,7 +10,7 @@ function Movies() {
       .then((response) => response.json())
       .then((data) => {
         const movies = data.slice(0, 12);
-        console.log(movies);
+        // console.log(movies);
         setMovies(movies);
       });
   }, []);
